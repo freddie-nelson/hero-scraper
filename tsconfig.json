@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "ESNext",
+        "outDir": "./dist",
+        "sourceMap": true,
+        "rootDir": "src",
+        "moduleResolution": "node",
+        "declaration": true,
+        "baseUrl": ".",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "experimentalDecorators": true,
+        "listFiles": true,
+        "newLine": "LF",
+        "noEmitOnError": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "types": ["node"],
+
+        "paths": {
+            "@/*": ["src/*"]
+        }
+    }
+}
