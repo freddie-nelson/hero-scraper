@@ -1,14 +1,15 @@
 {
     "name": "hero-scraper",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
+    "types": "dist/src/index.d.ts",
     "author": "Freddie Nelson <freddie0208@hotmail.com> (https://freddienelson.co.uk)",
     "license": "MIT",
     "private": false,
     "type": "module",
     "scripts": {
-        "build": "rollup -c --bundleConfigAsCjs",
+        "build": "rollup -c --bundleConfigAsCjs && rollup -c rollup.types.config.js --bundleConfigAsCjs",
         "dev": "rollup -c -w --bundleConfigAsCjs",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
@@ -46,17 +47,7 @@
         "tslib": "^2.5.2",
         "typescript": "^5.0.4"
     },
-    "peerDependencies": {
-        "@ulixee/chrome-102-0": "^5005.115.8",
-        "@ulixee/chrome-103-0": "^5060.134.8",
-        "@ulixee/chrome-104-0": "^5112.102.8",
-        "@ulixee/chrome-105-0": "^5195.127.8",
-        "@ulixee/chrome-106-0": "^5249.119.8",
-        "@ulixee/desktop-core": "^2.0.0-alpha.24",
-        "@ulixee/hero": "^2.0.0-alpha.24",
-        "@ulixee/hero-core": "^2.0.0-alpha.24",
-        "@ulixee/miner": "^2.0.0-alpha.19"
-    },
+    "peerDependencies": {},
     "engines": {
         "node": ">=10"
     }

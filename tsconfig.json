@@ -10,7 +10,9 @@
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "newLine": "LF",
-        "types": ["node"]
+        "types": ["node"],
+        "declaration": true,
+        "declarationDir": "./dist"
     },
     "include": ["**/*.ts"],
     "exclude": ["node_modules", "dist"]

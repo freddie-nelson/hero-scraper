@@ -14,15 +14,8 @@ const options = {
     input: "src/index.ts",
     output: [
         {
-            file: "dist/index.js",
-            format: "cjs",
-            sourcemap: true,
-            exports: "named",
-        },
-        {
-            file: "dist/index.esm.js",
-            format: "esm",
-            sourcemap: true,
+            file: "dist/index.d.ts",
+            format: "es",
         },
     ],
     // indidicate here external modules you don't want to include in your bundle
@@ -31,7 +24,6 @@ const options = {
         ...Object.keys(pkg.peerDependencies || {}),
     ],
     plugins: [
-        del({ targets: "dist/*" }),
         nodeResolve({
             // extensions: [".js", ".ts", ".mts", ".mjs", ".json"],
         }),
@@ -49,6 +41,7 @@ const options = {
             tsconfig: "./tsconfig.json",
         }),
         typescriptPaths(),
+        dts(),
         json(),
         eslint(),
     ],
