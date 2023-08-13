@@ -1,12 +1,10 @@
 import eslint from "@rollup/plugin-eslint";
 import json from "@rollup/plugin-json";
-import terser from "@rollup/plugin-terser";
 import del from "rollup-plugin-delete";
 import { typescriptPaths } from "rollup-plugin-typescript-paths";
 import typescript from "rollup-plugin-typescript2";
-import resolve from "@rollup/plugin-node-resolve";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import { dts } from "rollup-plugin-dts";
 
 /** @type {import('rollup').RollupOptions} */
 const options = {
@@ -14,15 +12,24 @@ const options = {
     output: [
         {
             file: "dist/index.js",
-            format: "esm",
+            format: "cjs",
             sourcemap: true,
             plugins: [],
         },
     ],
     plugins: [
         del({ targets: "dist/*" }),
-        resolve({
+        nodeResolve({
             extensions: [".js", ".ts", ".mts", ".mjs", ".json"],
+        }),
+        commonjs({
+            // dynamicRequireTargets: [
+            //     "node_modules/@ulixee/hero/lib/CallsiteLocator",
+            // ],
+            transformMixedEsModules: true,
+            strictRequires: true,
+            requireReturnsDefault: "auto",
+            include: ["node_modules/**"],
         }),
         typescript({
             include: ["*.ts+(|x)", "**/*.ts+(|x)", "**/*.d.cts", "**/*.d.mts"],
@@ -31,11 +38,6 @@ const options = {
         typescriptPaths(),
         json(),
         eslint(),
-        commonjs({
-            include: "node_modules/**",
-            requireReturnsDefault: "auto",
-            include: ["node_modules/**"],
-        }),
     ],
 };
 

@@ -1,25 +1,17 @@
 {
     "compilerOptions": {
-        "target": "esnext",
-        "module": "ESNext",
-        "outDir": "./dist",
-        "sourceMap": true,
-        "rootDir": "src",
-        "moduleResolution": "node",
-        "declaration": true,
-        "baseUrl": ".",
+        "module": "es6",
         "noImplicitAny": true,
-        "removeComments": true,
-        "experimentalDecorators": true,
-        "listFiles": true,
-        "newLine": "LF",
-        "noEmitOnError": true,
-        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "rootDir": ".",
+        "baseUrl": ".",
+        "target": "es6",
+        "moduleResolution": "node",
         "esModuleInterop": true,
-        "types": ["node"],
-
-        "paths": {
-            "@/*": ["src/*"]
-        }
-    }
+        "experimentalDecorators": true,
+        "newLine": "LF",
+        "types": ["node"]
+    },
+    "include": ["**/*.ts"],
+    "exclude": ["node_modules", "dist"]
 }

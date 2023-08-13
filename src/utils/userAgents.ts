@@ -1,2 +1,2 @@
-export const windowsUserAgent = "~ chrome >= 105 && windows >= 10";
-export const macUserAgent = "~ chrome >= 105 && mac >= 10.15";
+export const windowsUserAgent = "windows >= 10";
+export const macUserAgent = "mac >= 10.15";
