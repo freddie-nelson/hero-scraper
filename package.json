@@ -1,6 +1,6 @@
 {
     "name": "hero-scraper",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "main": "dist/index.js",
     "module": "dist/index.js",
     "author": "Freddie Nelson <freddie0208@hotmail.com> (https://freddienelson.co.uk)",

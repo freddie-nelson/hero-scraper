@@ -10,15 +10,24 @@ import { useValidURL } from "./utils/useValidURL";
 import Miner from "@ulixee/miner";
 import Core from "@ulixee/hero-core";
 
-import { mac, windows } from "./utils/userAgents";
+import { macUserAgent, windowsUserAgent } from "./utils/userAgents";
 import {
-    desktop,
-    largeDesktop,
-    smallDesktop,
-    mediumDesktop,
+    desktopViewport,
+    largeDesktopViewport,
+    smallDesktopViewport,
+    mediumDesktopViewport,
 } from "./utils/viewports";
 
-export { mac, windows, desktop, largeDesktop, smallDesktop, mediumDesktop };
+export { gracefulHeroClose, needsFree, needsInit, makesBusy };
+
+export { macUserAgent, windowsUserAgent };
+
+export {
+    desktopViewport,
+    largeDesktopViewport,
+    smallDesktopViewport,
+    mediumDesktopViewport,
+};
 
 export default class Scraper {
     protected name: string;
