@@ -10,6 +10,16 @@ import { useValidURL } from "./utils/useValidURL";
 import Miner from "@ulixee/miner";
 import Core from "@ulixee/hero-core";
 
+import { mac, windows } from "./utils/userAgents";
+import {
+    desktop,
+    largeDesktop,
+    smallDesktop,
+    mediumDesktop,
+} from "./utils/viewports";
+
+export { mac, windows, desktop, largeDesktop, smallDesktop, mediumDesktop };
+
 export default class Scraper {
     protected name: string;
     protected heroOptions: IHeroCreateOptions;

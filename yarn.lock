@@ -373,6 +373,41 @@
   dependencies:
     "@ulixee/js-path" "^2.0.0-alpha.18"
 
+"@ulixee/chrome-102-0@^5005.115.8":
+  version "5005.115.8"
+  resolved "https://registry.yarnpkg.com/@ulixee/chrome-102-0/-/chrome-102-0-5005.115.8.tgz#ebc85f70042fc0486963c26860f7c4ce899af9b0"
+  integrity sha512-3x1Mhs7z97rD6viXMKJDoqO+rznX8e2z02ljkR0Zgd6darO2Bvbbh0sG2QrJj6NgyzXvpl8V+T4TtVpYiFuMJg==
+  dependencies:
+    "@ulixee/chrome-app" "^1.0.3"
+
+"@ulixee/chrome-103-0@^5060.134.8":
+  version "5060.134.8"
+  resolved "https://registry.yarnpkg.com/@ulixee/chrome-103-0/-/chrome-103-0-5060.134.8.tgz#09ab66b960f76b906e65e4f2bdcf67333a99bbb5"
+  integrity sha512-7AnmnT6Tak/g3DDFib+SP+hW2okfA7tU1Yqne4RAlrEfn+CzOO0syrCOuJ8qasieMmmrnEoqIRThbgCffUSEcw==
+  dependencies:
+    "@ulixee/chrome-app" "^1.0.3"
+
+"@ulixee/chrome-104-0@^5112.102.8":
+  version "5112.102.8"
+  resolved "https://registry.yarnpkg.com/@ulixee/chrome-104-0/-/chrome-104-0-5112.102.8.tgz#72f1afca28d9dc2c153c548c21b26e06f22148b2"
+  integrity sha512-5t6UF+Je3/i+DR6LngW+JZh2yiFya+rH1fsZBfWIiqLWGqABqqWvK6AJ2O+pI0GgDj/lMwKPMtSnXYJurpOqCg==
+  dependencies:
+    "@ulixee/chrome-app" "^1.0.3"
+
+"@ulixee/chrome-105-0@^5195.127.8":
+  version "5195.127.8"
+  resolved "https://registry.yarnpkg.com/@ulixee/chrome-105-0/-/chrome-105-0-5195.127.8.tgz#a9d6a0c93089f52652efa735dbc6f4abf2c3794d"
+  integrity sha512-7vsFu1VH0lzhy7sYMIH64DRGEkutxKDU1Xky/1aCLgf5/YFGUy6ShqiyA6qAyd1z9GXhfcgSlBr5OO75LWqBRA==
+  dependencies:
+    "@ulixee/chrome-app" "^1.0.3"
+
+"@ulixee/chrome-106-0@^5249.119.8":
+  version "5249.119.8"
+  resolved "https://registry.yarnpkg.com/@ulixee/chrome-106-0/-/chrome-106-0-5249.119.8.tgz#fc22f5938b3d76d19616fa6fe0a8bea002f03452"
+  integrity sha512-WbdIK/glM7vqTjQhdrCNpyqzMryluUoOAN5YSbzyp392+uZKGZc1F3izWN/Jb9HGLuX3Q3886SvN2fMfdnpDqA==
+  dependencies:
+    "@ulixee/chrome-app" "^1.0.3"
+
 "@ulixee/chrome-109-0@^5414.120.7":
   version "5414.120.8"
   resolved "https://registry.yarnpkg.com/@ulixee/chrome-109-0/-/chrome-109-0-5414.120.8.tgz#8490ac2cd378e3052ecee1fb1d73fef69dac316d"
