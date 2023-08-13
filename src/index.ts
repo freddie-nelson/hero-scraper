@@ -384,13 +384,3 @@ export default class Scraper {
             console.log(`[${new Date().toISOString()} DEBUG]:`, ...args);
     }
 }
-
-(async () => {
-    const s = new Scraper("test", {
-        showChrome: true,
-    });
-
-    await s.init();
-    await new Promise((r) => setTimeout(r, 10000));
-    await s.close();
-})();
