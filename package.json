@@ -16,6 +16,7 @@
         "prepare": "husky install"
     },
     "dependencies": {
+        "@infosimples/node_two_captcha": "^1.2.0",
         "@ulixee/chrome-102-0": "^5005.115.8",
         "@ulixee/chrome-103-0": "^5060.134.8",
         "@ulixee/chrome-104-0": "^5112.102.8",

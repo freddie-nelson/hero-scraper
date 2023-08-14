@@ -17,6 +17,7 @@ import {
     smallDesktopViewport,
     mediumDesktopViewport,
 } from "./utils/viewports";
+import Client from "@infosimples/node_two_captcha";
 
 export { gracefulHeroClose, needsFree, needsInit, makesBusy };
 
@@ -127,6 +128,55 @@ export default class Scraper {
 
         await this.hero.click(inputElement);
         await this.hero.type(value);
+    }
+
+    protected captchaKey: string;
+    protected captchaClient: Client;
+    protected createCaptchaClient(twoCaptchaKey: string) {
+        if (this.captchaClient && this.captchaKey === twoCaptchaKey) return;
+
+        this.captchaKey = twoCaptchaKey;
+        this.captchaClient = new Client(twoCaptchaKey, {
+            timeout: 60000,
+            polling: 7500,
+            throwErrors: true,
+        });
+    }
+
+    /**
+     * Solves a captcha that is on the current page using the 2captcha API.
+     *
+     * @param twoCaptchaKey The 2captcha API key
+     * @param sitekey The sitekey of the captcha to solve (optional, will try to find it on the page if not provided)
+     *
+     * @returns The captcha response
+     */
+    @needsInit()
+    protected async solveRecaptchaV2(twoCaptchaKey: string, sitekey?: string) {
+        this.createCaptchaClient(twoCaptchaKey);
+
+        if (!sitekey) {
+            sitekey = await this.document
+                .querySelector("[data-sitekey]")
+                ?.getAttribute("data-sitekey");
+            if (!sitekey) throw new Error("Could not find sitekey on page.");
+        }
+
+        const res = await this.captchaClient.decodeRecaptchaV2({
+            googlekey: sitekey,
+            pageurl: await this.hero.url,
+        });
+
+        return res;
+    }
+
+    protected async refundRecaptchaV2(
+        twoCaptchaKey: string,
+        captchaId: string,
+    ) {
+        this.createCaptchaClient(twoCaptchaKey);
+
+        return await this.captchaClient.report(captchaId, true);
     }
 
     @needsInit()
