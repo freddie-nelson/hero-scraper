@@ -18,6 +18,8 @@ import {
     mediumDesktopViewport,
 } from "./utils/viewports";
 import Client from "@infosimples/node_two_captcha";
+import ExecuteJsCorePlugin from "@ulixee/execute-js-plugin/lib/CorePlugin";
+import ExecuteJsClientPlugin from "@ulixee/execute-js-plugin/lib/ClientPlugin";
 
 export { gracefulHeroClose, needsFree, needsInit, makesBusy };
 
@@ -72,7 +74,7 @@ export default class Scraper {
         console.log(`Initialising ${this.name}.`);
 
         // install core plugins
-        for (const p of this.corePlugins) {
+        for (const p of [ExecuteJsCorePlugin, ...this.corePlugins]) {
             Core.use(p);
         }
 
@@ -85,7 +87,7 @@ export default class Scraper {
         });
 
         // install client plugins
-        for (const p of this.clientPlugins) {
+        for (const p of [ExecuteJsClientPlugin, ...this.clientPlugins]) {
             this.hero.use(p);
         }
 
@@ -113,6 +115,11 @@ export default class Scraper {
         this.isBusy = false;
 
         console.log(`Closed ${this.name}.`);
+    }
+
+    protected executeJs(fn: CallableFunction, ...args: any[]): Promise<any> {
+        // @ts-expect-error executeJs is not typed properly since it is a plugin
+        return this.hero.executeJs(fn, ...args);
     }
 
     @needsInit()
