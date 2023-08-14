@@ -1,13 +1,13 @@
 {
     "name": "hero-scraper",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
-    "types": "dist/src/index.d.ts",
+    "types": "dist/index.d.ts",
     "author": "Freddie Nelson <freddie0208@hotmail.com> (https://freddienelson.co.uk)",
     "license": "MIT",
     "private": false,
-    "type": "module",
+    "type": "commonjs",
     "scripts": {
         "build": "rollup -c --bundleConfigAsCjs && rollup -c rollup.types.config.js --bundleConfigAsCjs",
         "dev": "rollup -c -w --bundleConfigAsCjs",
