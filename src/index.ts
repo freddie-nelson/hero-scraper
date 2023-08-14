@@ -168,6 +168,7 @@ export default class Scraper {
             googlekey: sitekey,
             pageurl: await this.hero.url,
         });
+        if (!res) throw new Error("Captcha solve timed out.");
 
         this.debugLog(`Solved captcha '${sitekey}'.`);
 

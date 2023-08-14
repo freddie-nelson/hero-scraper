@@ -24,20 +24,20 @@ declare module "@infosimples/node_two_captcha" {
         decodeRecaptchaV2(opts: {
             googlekey: string;
             pageurl: string;
-        }): Promise<string>;
+        }): Promise<{ text: string; id: string } | undefined>;
 
         decodeRecaptchaV3(opts: {
             googlekey: string;
             pageurl: string;
             action: string;
             enterprise?: boolean;
-        }): Promise<string>;
+        }): Promise<{ text: string; id: string } | undefined>;
 
         decodeHCaptcha(opts: {
             sitekey: string;
             pageurl: string;
             invisible?: boolean;
-        }): Promise<string>;
+        }): Promise<{ text: string; id: string } | undefined>;
 
         captcha(captchaId: string): Promise<Captcha>;
 
