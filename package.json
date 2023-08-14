@@ -1,6 +1,6 @@
 {
     "name": "hero-scraper",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts",
@@ -21,10 +21,10 @@
         "@ulixee/chrome-104-0": "^5112.102.8",
         "@ulixee/chrome-105-0": "^5195.127.8",
         "@ulixee/chrome-106-0": "^5249.119.8",
-        "@ulixee/desktop-core": "^2.0.0-alpha.24",
-        "@ulixee/hero": "^2.0.0-alpha.24",
-        "@ulixee/hero-core": "^2.0.0-alpha.24",
-        "@ulixee/miner": "^2.0.0-alpha.19"
+        "@ulixee/execute-js-plugin": "2.0.0-alpha.19",
+        "@ulixee/hero": "2.0.0-alpha.19",
+        "@ulixee/hero-core": "2.0.0-alpha.19",
+        "@ulixee/miner": "2.0.0-alpha.19"
     },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^25.0.4",
