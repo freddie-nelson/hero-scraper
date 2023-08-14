@@ -162,10 +162,14 @@ export default class Scraper {
             if (!sitekey) throw new Error("Could not find sitekey on page.");
         }
 
+        this.debugLog(`Solving captcha '${sitekey}'.`);
+
         const res = await this.captchaClient.decodeRecaptchaV2({
             googlekey: sitekey,
             pageurl: await this.hero.url,
         });
+
+        this.debugLog(`Solved captcha '${sitekey}'.`);
 
         return res;
     }
@@ -176,7 +180,14 @@ export default class Scraper {
     ) {
         this.createCaptchaClient(twoCaptchaKey);
 
-        return await this.captchaClient.report(captchaId, true);
+        this.debugLog(`Refunding captcha '${captchaId}'.`);
+
+        const res = await this.captchaClient.report(captchaId, true);
+
+        if (!res) this.debugLog(`Failed to refund captcha '${captchaId}'.`);
+        else this.debugLog(`Refunded captcha '${captchaId}'.`);
+
+        return res;
     }
 
     @needsInit()
