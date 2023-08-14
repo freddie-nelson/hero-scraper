@@ -115,6 +115,21 @@ export default class Scraper {
     }
 
     @needsInit()
+    protected async fillInput(
+        inputElement: ReturnType<Hero["document"]["querySelector"]>,
+        value: string,
+    ) {
+        this.debugLog(
+            `Filling input '${
+                (await inputElement.name) || (await inputElement.id) || "input"
+            }' with '${value}'.`,
+        );
+
+        await this.hero.click(inputElement);
+        await this.hero.type(value);
+    }
+
+    @needsInit()
     protected async waitForUrl(
         url: string,
         exactMatch = false,
@@ -377,6 +392,16 @@ export default class Scraper {
         status: LoadStatus = LoadStatus.AllContentLoaded,
     ) {
         await this.hero.waitForLoad(status);
+    }
+
+    @needsInit()
+    protected async waitForMillis(ms: number) {
+        await this.hero.waitForMillis(ms);
+    }
+
+    @needsInit()
+    protected async waitForRandomMillis(min: number, max: number) {
+        await this.waitForMillis(Math.random() * (max - min) + min);
     }
 
     protected debugLog(...args: any[]) {
