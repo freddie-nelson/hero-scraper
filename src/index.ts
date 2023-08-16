@@ -39,6 +39,8 @@ export default class Scraper {
     protected miner: Miner;
     protected document: Hero["document"];
 
+    protected viewport: IHeroCreateOptions["viewport"];
+
     // CLIENT STATE FLAGS
     protected isInitialised = false;
     getIsInitialised() {
@@ -59,8 +61,13 @@ export default class Scraper {
         private clientPlugins: any[] = [],
         private corePlugins: any[] = [],
     ) {
+        if (!this.heroOptions.viewport)
+            throw new Error("No viewport provided.");
+
         this.name = name || "client";
         this.heroOptions = heroOptions;
+
+        this.viewport = heroOptions.viewport;
     }
 
     @gracefulHeroClose()
@@ -115,6 +122,14 @@ export default class Scraper {
         this.isBusy = false;
 
         console.log(`Closed ${this.name}.`);
+    }
+
+    async getUserProfile() {
+        return this.hero.exportUserProfile();
+    }
+
+    getViewport() {
+        return this.viewport;
     }
 
     protected executeJs(fn: CallableFunction, ...args: any[]): Promise<any> {
