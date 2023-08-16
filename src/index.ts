@@ -61,8 +61,7 @@ export default class Scraper {
         private clientPlugins: any[] = [],
         private corePlugins: any[] = [],
     ) {
-        if (!this.heroOptions.viewport)
-            throw new Error("No viewport provided.");
+        if (!heroOptions.viewport) throw new Error("No viewport provided.");
 
         this.name = name || "client";
         this.heroOptions = heroOptions;
