@@ -32,7 +32,7 @@ export {
     mediumDesktopViewport,
 };
 
-export default class Scraper {
+export class Scraper {
     protected name: string;
     protected heroOptions: IHeroCreateOptions;
     protected hero: Hero;
