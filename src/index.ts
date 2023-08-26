@@ -5,6 +5,7 @@ import {
     makesBusy,
     needsFree,
     needsInit,
+    createFlagDecorator,
 } from "./classDecorators";
 import { useValidURL } from "./utils/useValidURL";
 import Miner from "@ulixee/miner";
@@ -21,7 +22,13 @@ import Client from "@infosimples/node_two_captcha";
 import ExecuteJsCorePlugin from "@ulixee/execute-js-plugin/lib/CorePlugin";
 import ExecuteJsClientPlugin from "@ulixee/execute-js-plugin/lib/ClientPlugin";
 
-export { gracefulHeroClose, needsFree, needsInit, makesBusy };
+export {
+    gracefulHeroClose,
+    needsFree,
+    needsInit,
+    makesBusy,
+    createFlagDecorator,
+};
 
 export { macUserAgent, windowsUserAgent };
 
